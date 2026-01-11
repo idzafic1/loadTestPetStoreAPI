@@ -1,0 +1,105 @@
+{
+	"id": "09912a5c-eec2-404d-94ee-925387a91540",
+	"name": "PetStore Env",
+	"values": [
+		{
+			"key": "base_url",
+			"value": "https://petstore.swagger.io/v2",
+			"type":  "default",
+			"enabled": true
+		},
+		{
+			"key":  "base_url_pets",
+			"value": "https://petstore.swagger.io/v2/pet",
+			"type": "default",
+			"enabled":  true
+		},
+		{
+			"key": "base_url_store",
+			"value": "https://petstore.swagger.io/v2/store",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "base_url_user",
+			"value": "https://petstore.swagger.io/v2/user",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "api_key",
+			"value": "special-key",
+			"type":  "default",
+			"enabled": true
+		},
+		{
+			"key":  "pet_id",
+			"value":  "",
+			"type":  "default",
+			"enabled": true
+		},
+		{
+			"key":  "user_id",
+			"value":  "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "order_id",
+			"value": "",
+			"type": "default",
+			"enabled":  true
+		},
+		{
+			"key": "username",
+			"value":  "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "deleted_order_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "password",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "dynamic_username",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "array_user1",
+			"value":  "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "array_user2",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "list_user1",
+			"value": "",
+			"type":  "any",
+			"enabled": true
+		},
+		{
+			"key":  "deleted_username",
+			"value":  "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-01-03T22:20:10.643Z",
+	"_postman_exported_using": "Postman/11.77.2"
+}

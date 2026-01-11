@@ -7,7 +7,7 @@ cat > results/history/${RUN_ID}.json << ENDJSON
 {
   "run_id": "${RUN_ID}",
   "timestamp": "$(date -Iseconds)",
-  "date_display": "$(date '+%Y-%m-%d %H:%M')",
+  "date_display": "$(date '+%Y-%m-%d %H:%M:%S')",
   "smoke":  $(cat results/smoke_summary.json 2>/dev/null || echo '{}'),
   "stress": $(cat results/stress_summary.json 2>/dev/null || echo '{}'),
   "spike": $(cat results/spike_summary.json 2>/dev/null || echo '{}'),
