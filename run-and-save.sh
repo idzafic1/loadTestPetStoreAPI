@@ -1,4 +1,12 @@
 #!/bin/bash
+# ==============================================================================
+# Script: run-and-save.sh
+# Description: Interactive runner allowing selection between Quick (Smoke),
+#              Standard (Stress + Spike), and Full Load tests. Automatically
+#              triggers save-results.sh upon test completion.
+# Usage: ./run-and-save.sh
+# ==============================================================================
+
 echo "========================================"
 echo "  Run Tests and Save to History"
 echo "========================================"

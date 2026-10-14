@@ -1,4 +1,11 @@
 #!/bin/bash
+# ==============================================================================
+# Script: autoRun.sh
+# Description: Automated test runner that executes multiple consecutive cycles of
+#              the full k6 load test (petstore-load-test.js), persists each run's
+#              metrics to results/history/, and updates the HTML report.
+# Usage: ./autoRun.sh
+# ==============================================================================
 
 # Configuration
 TOTAL_RUNS=5
@@ -43,6 +50,13 @@ done
 
 echo "========================================"
 echo "  ✅ ALL $TOTAL_RUNS RUNS COMPLETED!"
-echo "  View the report here:"
-echo "  brave-browser results/report.html"
+echo "  Report available at: results/report.html"
 echo "========================================"
+if command -v xdg-open >/dev/null 2>&1; then
+    xdg-open results/report.html >/dev/null 2>&1 &
+elif command -v firefox >/dev/null 2>&1; then
+    firefox results/report.html >/dev/null 2>&1 &
+elif command -v brave-browser >/dev/null 2>&1; then
+    brave-browser results/report.html >/dev/null 2>&1 &
+fi
+
