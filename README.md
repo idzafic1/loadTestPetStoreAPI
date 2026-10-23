@@ -5,7 +5,7 @@
 [![Apache JMeter](https://img.shields.io/badge/JMeter-APDEX_0.919-D22128?style=flat-square&logo=apachejmeter&logoColor=white)](https://jmeter.apache.org/)
 [![Postman Collection](https://img.shields.io/badge/API_Testing-Postman-FF6C37?style=flat-square&logo=postman&logoColor=white)](https://www.postman.com/)
 [![Newman CLI](https://img.shields.io/badge/CLI-Newman-FF6C37?style=flat-square)](https://www.npmjs.com/package/newman)
-[![Reports Documentation](https://img.shields.io/badge/Documentation-147_Pages_PDF-success?style=flat-square)](./docs/reports/)
+[![Reports Documentation](https://img.shields.io/badge/Documentation-87_Pages_PDF-success?style=flat-square)](./docs/reports/)
 [![Live Dashboard](https://img.shields.io/badge/Live_Dashboard-GitHub_Pages-22c55e?style=flat-square)](https://idzafic1.github.io/loadTestPetStoreAPI/)
 
 ---
@@ -27,7 +27,7 @@ Rather than a simple one-off script, this project demonstrates end-to-end QA eng
 
 ## 📑 Comprehensive QA Reports & Academic Documentation
 
-A central highlight of this project is the inclusion of **two exhaustive academic and industry-standard QA engineering reports (totaling 147 pages)** available in the [`docs/reports/`](./docs/reports/) directory (as well as preserved at repository root as `VVSprojekat3.pdf` and `VVS.pdf`). These reports document every stage of testing, from initial test design to automated execution, root-cause bottleneck analysis, and code refactoring.
+A central highlight of this project is the inclusion of **an 87-page formal report for API & performance testing** (alongside a 60-page report for white-box testing) available in the [`docs/reports/`](./docs/reports/) directory (as well as preserved at repository root as `VVSprojekat3.pdf` and `VVS.pdf`). These reports document every stage of testing, from initial test design to automated execution, performance benchmarking, and code refactoring.
 
 ### 📄 Report 1: API Functional & Performance Testing Comprehensive Report
 🔗 **File**: [`docs/reports/api-and-performance-testing-report.pdf`](./docs/reports/api-and-performance-testing-report.pdf) *(87 Pages | Original: `VVSprojekat3.pdf`)*
@@ -55,7 +55,7 @@ This report provides an in-depth, 4-part quality assurance and performance study
 4. **Task 4 – Comprehensive Performance, Load & Stress Testing (k6 vs. Apache JMeter)**:
    - **k6 Suite**: Multi-stage testing simulating up to 50 concurrent virtual users across 13,750 requests, measuring throughput, percentile latencies (p50, p90, p95), and automated threshold gates.
    - **Apache JMeter Suite**: 4 Thread Groups (Smoke, Stress, Spike, Endurance) with 1,510 requests calculating **APDEX (Application Performance Index)** scores.
-   - **Root Bottleneck Identified**: Query filtering via `GET /pet/findByStatus?status=available` degraded to **1,180 ms average** and **1,343 ms maximum** latency under 50 concurrent threads (APDEX dropped to 0.500), proving the presence of an unindexed table scan or missing caching layer under concurrent read pressure.
+   - **Root Bottleneck Identified**: Query filtering via `GET /pet/findByStatus?status=available` degraded to **1,180 ms average** and **1,343 ms maximum** latency under 50 concurrent threads (APDEX dropped to 0.500); latency degraded under 50 concurrent threads; root cause not investigated.
 
 ---
 
@@ -346,11 +346,11 @@ Evaluated across 4 Thread Groups (Smoke, Stress, Spike, Endurance) totaling **1,
 
 Ovaj repozitorij predstavlja sveobuhvatni **Quality Assurance (QA) i Software Verification & Validation (VVS)** portfolio razvijen na javnom **Swagger Petstore REST API-ju** i pratećim aplikacijama.
 
-Repozitorij i priloženi detaljni izvještaji (ukupno **147 stranica dokumentacije** u `docs/reports/` i korijenu projekta) obuhvataju:
+Repozitorij i priloženi detaljni izvještaji (87 stranica formalnog izvještaja za API i performanse, te 60 stranica za white-box testiranje u `docs/reports/` i korijenu projekta) obuhvataju:
 1. **Black-Box testiranje i UI automatizaciju** (SauceDemo): Tehnike ekvivalentnog particionisanja, analize graničnih vrijednosti, use-case scenariji, kreiranje formalnih test case-ova i prijava bugova za Azure DevOps, te automatizacija kroz Selenium IDE i NUnit C# Page Object Model framework.
 2. **Funkcionalno API testiranje** (Postman & Newman): Kolekcija od 65 zahtjeva i 366 asertacija (100% prolaznost) koja je otkrila ranjivosti poslovne logike na backendu (prihvatanje negativne količine narudžbe, nevalidni statusi, prazni POST unosi).
 3. **k6 Load testiranje**: Izvršeno 13.750 HTTP zahtjeva kroz 4 scenarija (Smoke, Load, Stress, Spike) sa prosječnim odzivom od 151,13 ms i stopom greške od samo 0,31%.
-4. **Apache JMeter analizu**: 1.510 zahtjeva i APDEX ocjena 0,919, uz precizno lociranje uskog grla u bazi podataka na `GET /pet/findByStatus` pod opterećenjem od 50 niti (latencija skočila na 1.180 ms).
+4. **Apache JMeter analizu**: 1.510 zahtjeva i APDEX ocjena 0,919, uz lociranje kašnjenja na `GET /pet/findByStatus` pod opterećenjem od 50 niti (latencija skočila na 1.180 ms; korijenski uzrok nije istraživan).
 5. **White-Box testiranje i McCabe metriku**: Kontrolni grafovi, bazne putanje, 100% pokrivenost grana i uslova za 4 ključne metode.
 6. **Code Tuning i Fowler refaktoring**: Optimizacija C# koda (.NET) uklanjanjem LINQ-a u kritičnim petljama, keširanjem `DateTime.Now` i dužina kolekcija, upotrebom `StringBuilder`-a, te verifikacija poboljšanja kroz Visual Studio Code Metrics.
 7. **Automatizovanu vizualizaciju**: Arhiviranje JSON metrika i generisanje interaktivnog HTML izvještaja sa historijskim pregledom trendova.
