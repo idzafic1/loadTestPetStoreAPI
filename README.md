@@ -18,7 +18,7 @@ Rather than a simple one-off script, this project demonstrates end-to-end QA eng
 - **Black-Box Functional Testing & UI Automation** (Equivalence Partitioning, Boundary Value Analysis, Use Case Testing, Selenium IDE, NUnit C# Page Object Model).
 - **Automated REST API Contract & Boundary Testing** (Postman & Newman CLI, 65 requests, 366 assertions, dynamic variables, defect detection).
 - **Multi-Scenario Performance & Stress Testing** (k6 JavaScript engine: Smoke, Load, Stress, Spike; 13,750 requests, 27.86 req/s throughput, 0.31% error rate).
-- **Comparative Load Benchmarking & Bottleneck Discovery** (Apache JMeter: 4 Thread Groups, 1,510 requests, APDEX 0.919, isolating unindexed database latency degradation).
+- **Comparative Load Benchmarking & Bottleneck Discovery** (Apache JMeter: 4 Thread Groups, 1,510 requests, APDEX 0.919, isolating latency degradation on GET /pet/findByStatus under 50 concurrent threads; root cause not investigated).
 - **White-Box Testing & McCabe Cyclomatic Complexity** (Control flow graphs, basis path testing, branch/condition coverage).
 - **Code Tuning & Fowler-Style Refactoring** (.NET/C# hot path micro-optimizations, eliminating LINQ overhead, caching, StringBuilder, and Visual Studio Code Metrics verification).
 - **Automated Metrics Archiving & Interactive Visual Reporting** (Continuous JSON persistence, Chart.js compilation, and GitHub Pages deployment).
@@ -27,7 +27,7 @@ Rather than a simple one-off script, this project demonstrates end-to-end QA eng
 
 ## 📑 Comprehensive QA Reports & Academic Documentation
 
-A central highlight of this project is the inclusion of **an 87-page formal report for API & performance testing** (alongside a 60-page report for white-box testing) available in the [`docs/reports/`](./docs/reports/) directory (as well as preserved at repository root as `VVSprojekat3.pdf` and `VVS.pdf`). These reports document every stage of testing, from initial test design to automated execution, performance benchmarking, and code refactoring.
+A central highlight of this project is the inclusion of **two reports (87 and 60 pages)** available in the [`docs/reports/`](./docs/reports/) directory (as well as preserved at repository root as `VVSprojekat3.pdf` and `VVS.pdf`). These reports document every stage of testing, from initial test design to automated execution, performance benchmarking, and code refactoring.
 
 ### 📄 Report 1: API Functional & Performance Testing Comprehensive Report
 🔗 **File**: [`docs/reports/api-and-performance-testing-report.pdf`](./docs/reports/api-and-performance-testing-report.pdf) *(87 Pages | Original: `VVSprojekat3.pdf`)*
@@ -312,7 +312,7 @@ Evaluated across 4 Thread Groups (Smoke, Stress, Spike, Endurance) totaling **1,
 - **Error Rate**: **0.13%** (only 2 timeouts encountered).
 - **Critical Architectural Bottleneck Found**:
   - While simple ID lookups and write operations completed under 450 ms, `GET /pet/findByStatus?status=available` under 50-thread concurrent stress suffered severe latency spikes to **1,180 ms average** and **1,343 ms maximum** (APDEX fell to **0.500**).
-  - **Root Cause**: Unindexed database query filtering across large collections without an in-memory caching tier (e.g. Redis) under concurrent read loads.
+  - **Latency Observation**: Latency degraded under 50 concurrent threads; root cause not investigated.
 
 | JMeter Scenario Breakdown | APDEX & Key Metrics | Active Threads Progression |
 | :---: | :---: | :---: |
